@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: First NexsNews article
+  slug: first-nexsnews-article
+  excerpt: A short introduction to NexsNews.
+  body: This is the body of the first NexsNews article.
+  status: draft
+  published_at:
+
+two:
+  title: Published Rails article
+  slug: published-rails-article
+  excerpt: A short article about Rails.
+  body: This is the body of the published Rails article.
+  status: published
+  published_at: 2026-06-16 23:51:05
