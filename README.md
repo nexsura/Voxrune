@@ -32,14 +32,14 @@ The project is currently focused on building the foundation correctly before add
 
 The current codebase includes:
 
-- a Rails full-stack application;
-- a Docker Compose development environment;
-- PostgreSQL as the application database;
-- a custom home page;
-- Importmap-based JavaScript setup;
-- CI checks for tests, linting, and security;
-- a protected main branch workflow;
-- the first domain model: Article.
+- a Rails full-stack application
+- a Docker Compose development environment
+- PostgreSQL as the application database
+- a custom home page
+- Importmap-based JavaScript setup
+- CI checks for tests, linting, and security
+- a protected main branch workflow
+- the first domain model: Article
 
 ## Current Capabilities
 
@@ -71,7 +71,7 @@ Not implemented yet:
 
 ## Tech Stack
 
-    Layer                  Technology
+   Layer                  Technology
 ━━━━━━━━━━━━━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    Language               Ruby 3.4.9
 ─────────────────────  ──────────────────────────────────────────
@@ -104,16 +104,15 @@ NexsNews is currently a Rails full-stack monolith.
 The application follows the standard Rails structure:
 
 app/
-    controllers/
-    models/
-    views/
+   controllers/
+   models/
+   views/
 config/
 db/
 test/
 
 Current domain model:
 
-```text
 Article
 
 Article fields:
@@ -165,12 +164,12 @@ The host machine does not need a local Ruby installation for normal development.
 
 Development rules:
 
-- do not work directly on main;
-- create a branch for each change;
-- keep commits focused;
-- run tests before opening a Pull Request;
-- keep CI green;
-- merge through GitHub Pull Requests.
+- do not work directly on main
+- create a branch for each change
+- keep commits focused
+- run tests before opening a Pull Request
+- keep CI green
+- merge through GitHub Pull Requests
 
 ## Requirements
 
@@ -215,11 +214,11 @@ docker compose down
 
 Docker Compose defines two services:
 
-Service    Purpose
+   Service    Purpose
 ━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━━━
-web        Rails application
+   web        Rails application
 ─────────  ─────────────────────
-db         PostgreSQL database
+   db         PostgreSQL database
 
 Docker volumes:
 
@@ -269,11 +268,11 @@ docker compose exec web bin/rails test test/models/article_test.rb
 
 Current test coverage includes:
 
-- root page response test;
-- article fixture validity;
-- article title validation;
-- article slug uniqueness validation;
-- article default status behavior.
+- root page response test
+- article fixture validity
+- article title validation
+- article slug uniqueness validation
+- article default status behavior
 
 System tests are not enabled in CI yet. They will be introduced when browser-level workflows are added.
 
@@ -307,8 +306,8 @@ docker compose exec web bin/importmap audit
 
 GitHub Actions runs on:
 
-- Pull Requests;
-- pushes to main.
+- Pull Requests
+- pushes to main
 
 Current CI jobs:
 
