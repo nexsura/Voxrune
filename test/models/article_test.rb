@@ -34,4 +34,8 @@ class ArticleTest < ActiveSupport::TestCase
 
     assert article.draft?
   end
+
+  test "published_recent_first returns published  articles with a publication date" do
+    assert_equal [ articles(:two) ], Article.published_recent_first.to_a
+  end
 end
