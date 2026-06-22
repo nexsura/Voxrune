@@ -20,4 +20,13 @@ class Article < ApplicationRecord
     }
   validates :body, presence: true
   validates :status, presence: true
+  validate :published_article_has_published_at
+
+  private
+
+  def published_article_has_published_at
+    return unless published? && published_at.blank?
+
+    errors.add(:published_at, "must be set when article is published")
+  end
 end

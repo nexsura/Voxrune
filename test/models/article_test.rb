@@ -50,4 +50,16 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not article.valid?
     assert_includes article.errors[:slug], "must use lowercase letters, numbers, and hyphens"
   end
+
+  test "published article requires published_at" do
+    article = Article.new(
+      title: "Published without date",
+      slug: "published-without-date",
+      body: "Published article body",
+      status: :published
+    )
+
+    assert_not article.valid?
+    assert_includes article.errors[:published_at], "must be set when article is published"
+  end
 end
