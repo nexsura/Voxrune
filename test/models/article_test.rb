@@ -66,4 +66,15 @@ class ArticleTest < ActiveSupport::TestCase
   test "uses slug as route parameter" do
     assert_equal articles(:one).slug, articles(:one).to_param
   end
+
+  test "generates slug from title when slug is blank" do
+    article = Article.new(
+      title: "Hello Rails World!",
+      body: "Article body",
+      status: :draft
+    )
+
+  assert article.valid?
+  assert_equal "hello-rails-world", article.slug
+  end
 end

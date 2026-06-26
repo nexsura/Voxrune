@@ -7,6 +7,7 @@ class Article < ApplicationRecord
     archived: 2
   }
 
+  before_validation :set_slug, if: -> { slug.blank? && title.present? }
   scope :recent_first, -> { order(published_at: :desc, created_at: :desc) }
   scope :published_recent_first, -> { published.where.not(published_at: nil).recent_first }
 
@@ -32,5 +33,9 @@ class Article < ApplicationRecord
     return unless published? && published_at.blank?
 
     errors.add(:published_at, "must be set when article is published")
+  end
+
+  def set_slug
+    self.slug = title.parameterize
   end
 end
