@@ -7,5 +7,6 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_select "h1", "NexsNews"
     assert_select "p", "A technical news and publishing platform built with Ruby on Rails."
     assert_select "p", "The application is running successfully."
+    assert_select "a[href=?]", articles_path, "Browse published articles"
   end
 end
