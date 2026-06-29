@@ -10,7 +10,12 @@
           <p><%= article.excerpt %></p>
         <% end %>
 
-        <p>Published on <%= article.published_at.to_date.to_fs(:long) %></p>
+        <p>
+          Published on
+          <time datetime="<%= article.published_at.iso8601 %>">
+            <%= article.published_at.to_date.to_fs(:long) %>
+          </time>
+        </p>
       </article>
     <% end %>
   <% else %>

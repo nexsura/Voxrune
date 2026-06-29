@@ -74,7 +74,7 @@ class ArticleTest < ActiveSupport::TestCase
       status: :draft
     )
 
-  assert article.valid?
-  assert_equal "hello-rails-world", article.slug
+    assert article.valid?
+    assert_equal "hello-rails-world", article.slug
   end
 end
