@@ -1,0 +1,22 @@
+<main>
+  <article>
+    <p><%= link_to "Back to articles", articles_path %></p>
+
+    <h1><%= @article.title %></h1>
+
+    <p>
+      Published on
+      <time datetime="<%= @article.published_at.iso8601 %>">
+        <%= @article.published_at.to_date.to_fs(:long) %>
+      </time>
+    </p>
+
+    <% if @article.excerpt.present? %>
+      <p><%= @article.excerpt %></p>
+    <% end %>
+
+    <div>
+      <%= simple_format @article.body %>
+    </div>
+  </article>
+</main>
