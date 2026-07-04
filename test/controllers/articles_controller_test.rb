@@ -21,4 +21,10 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_select "time[datetime=?]", articles(:two).published_at.iso8601
     assert_includes response.body, articles(:two).body
   end
+
+  test "should not show draft article" do
+    get article_url(articles(:one))
+
+    assert_response :not_found
+  end
 end
