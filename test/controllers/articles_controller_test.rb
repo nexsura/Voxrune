@@ -27,4 +27,10 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :not_found
   end
+
+  test "should not show unknown article" do
+    get article_url("unknown-article")
+
+    assert_response :not_found
+  end
 end
