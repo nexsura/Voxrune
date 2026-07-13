@@ -15,3 +15,11 @@ two:
   body: This is the body of the published Rails article.
   status: published
   published_at: 2026-06-16 23:51:05
+
+published_without_date:
+  title: Published article without date
+  slug: published-article-without-date
+  excerpt: This article should not be publicly visible yet.
+  body: This article is marked as published but has no publication date.
+  status: published
+  published_at:

@@ -9,7 +9,8 @@ class Article < ApplicationRecord
 
   before_validation :set_slug, if: -> { slug.blank? && title.present? }
   scope :recent_first, -> { order(published_at: :desc, created_at: :desc) }
-  scope :published_recent_first, -> { published.where.not(published_at: nil).recent_first }
+  scope :publicly_visible, -> { published.where.not(published_at: nil) }
+  scope :published_recent_first, -> { publicly_visible.recent_first }
 
   validates :title, presence: true
   validates :slug,
