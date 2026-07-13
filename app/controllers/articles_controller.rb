@@ -4,6 +4,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.published.find_by!(slug: params[:id])
+    @article = Article.publicly_visible.find_by!(slug: params[:id])
   end
 end
