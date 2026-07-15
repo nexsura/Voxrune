@@ -23,3 +23,11 @@ published_without_date:
   body: This article is marked as published but has no publication date.
   status: published
   published_at:
+
+scheduled:
+  title: Scheduled Rails article
+  slug: scheduled-rails-article
+  excerpt: This article is scheduled for later.
+  body: This article should not be publicly visible before its publication date.
+  status: published
+  published_at: <%= 1.day.from_now.to_fs(:db) %>

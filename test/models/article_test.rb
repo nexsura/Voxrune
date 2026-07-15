@@ -39,6 +39,10 @@ class ArticleTest < ActiveSupport::TestCase
     assert_equal [ articles(:two) ], Article.published_recent_first.to_a
   end
 
+  test "publicly_visible excludes scheduled articles" do
+    assert_not_includes Article.publicly_visible, articles(:scheduled)
+  end
+
   test "requires URL friendly slug" do
     article = Article.new(
       title: "Invalid slug article",
