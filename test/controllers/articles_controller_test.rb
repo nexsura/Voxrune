@@ -12,6 +12,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_no_match articles(:one).title, response.body
     assert_no_match articles(:published_without_date).title, response.body
     assert_no_match articles(:scheduled).title, response.body
+    assert_no_match articles(:archived).title, response.body
   end
 
   test "should show published article" do
@@ -38,6 +39,12 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should not show scheduled article before publication date" do
     get article_url(articles(:scheduled))
+
+    assert_response :not_found
+  end
+
+  test "should not show archived article" do
+    get article_url(articles(:archived))
 
     assert_response :not_found
   end
