@@ -43,6 +43,10 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not_includes Article.publicly_visible, articles(:scheduled)
   end
 
+  test "publicly_visible excludes archived articles" do
+    assert_not_includes Article.publicly_visible, articles(:archived)
+  end
+
   test "requires URL friendly slug" do
     article = Article.new(
       title: "Invalid slug article",
